@@ -11,14 +11,22 @@ router.get('/',function(req,res,next){
 
 
 router.post('/',function(req,res,next){
-  console.log(req.body.test);
   res.render('index', { title: 'Hey', message: 'Hello there!'});
 });
 
 
+
+const MemberModifyMethod = require('../controllers/modify_controller');
+memberModifyMethod = new MemberModifyMethod();
+router.post('/register',memberModifyMethod.postRegister);
+
+
+
+/*
 const MemberModifyMethod = require('../controllers/modify_controller');
 memberModifyMethod = new MemberModifyMethod();
 router.post('/register',memberModifyMethod);
+*/
 
 
 module.exports = router;
